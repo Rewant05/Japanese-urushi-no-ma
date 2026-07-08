@@ -59,18 +59,23 @@ export function CraftImage({
       onPointerMove={handlePointerMove}
       ref={frameRef}
     >
-      <picture>
-        <source sizes={sizes} srcSet={asset.srcSet} type="image/jpeg" />
-        <img
-          alt={asset.alt}
-          decoding="async"
-          height={asset.height}
-          loading={eager ? "eager" : "lazy"}
-          src={asset.src}
-          width={asset.width}
-        />
-      </picture>
-      <figcaption>{asset.caption}</figcaption>
+      <div className="craft-image-media">
+        <picture>
+          <source sizes={sizes} srcSet={asset.srcSet} type="image/jpeg" />
+          <img
+            alt={asset.alt}
+            decoding="async"
+            height={asset.height}
+            loading={eager ? "eager" : "lazy"}
+            src={asset.src}
+            width={asset.width}
+          />
+        </picture>
+      </div>
+      <figcaption>
+        <strong>{asset.caption}</strong>
+        <span>{asset.description}</span>
+      </figcaption>
     </figure>
   );
 }

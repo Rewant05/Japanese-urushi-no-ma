@@ -7,6 +7,10 @@ type FooterProps = {
 };
 
 export function Footer({ onNavigate }: FooterProps) {
+  const footerLinks = [...siteData.navLinks, ...siteData.footerLinks].filter(
+    (link, index, links) => links.findIndex((item) => item.href === link.href) === index
+  );
+
   const handleLinkClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     onNavigate(href);
@@ -38,7 +42,7 @@ export function Footer({ onNavigate }: FooterProps) {
         <section>
           <h2>ページ</h2>
           <div className="footer-links">
-            {[...siteData.navLinks, ...siteData.footerLinks].map((link) => (
+            {footerLinks.map((link) => (
               <a href={link.href} key={`${link.href}-${link.label}`} onClick={handleLinkClick(link.href)}>
                 {link.label}
               </a>

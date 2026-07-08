@@ -27,8 +27,10 @@ export function LegalPageLayout({
         {sections.map((section, index) => (
           <article className="legal-section" key={section.title}>
             <span>{String(index + 1).padStart(2, "0")}</span>
-            <h2>{section.title}</h2>
-            <p>{section.body}</p>
+            <div className="legal-copy">
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
+            </div>
           </article>
         ))}
       </div>

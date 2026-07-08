@@ -49,6 +49,7 @@ export type VisualAsset = {
   height: number;
   alt: string;
   caption: string;
+  description: string;
 };
 
 export const siteData = {
@@ -100,7 +101,9 @@ export const siteData = {
       width: 1280,
       height: 853,
       alt: "黒漆の平皿、朱塗り椀、小さな盆を暗い木の卓上に置いた架空の漆器静物",
-      caption: "黒、朱、金粉の気配を重ねた架空作品の静物"
+      caption: "黒、朱、金粉の気配を重ねた架空作品の静物",
+      description:
+        "黒漆の深い反射、朱塗りの温度、金粉の細かな光を一枚で見せるための編集ビジュアルです。作品カードへ入る前に、漆ノ間らしい質感を伝えます。"
     },
     workshop: {
       src: "/assets/urushi-workshop-1280.jpg",
@@ -109,7 +112,9 @@ export const siteData = {
       width: 1280,
       height: 853,
       alt: "刷毛、木地、漆器、乾燥棚が並ぶ暗い架空の漆工房の作業台",
-      caption: "湿度と時間を読む、架空工房の作業台"
+      caption: "湿度と時間を読む、架空工房の作業台",
+      description:
+        "刷毛、木地、乾燥棚を静かに重ね、漆器が完成する前の時間を表現しました。実在工房ではなく、架空サイト用に制作した工房イメージです。"
     },
     care: {
       src: "/assets/urushi-care-1280.jpg",
@@ -117,7 +122,9 @@ export const siteData = {
       width: 1280,
       height: 853,
       alt: "黒漆の椀を柔らかな布で拭く様子を表した架空の漆器手入れ静物",
-      caption: "水気を残さず、柔らかな布で整える手入れ"
+      caption: "水気を残さず、柔らかな布で整える手入れ",
+      description:
+        "洗ったあとの水気、柔らかな布、乾燥しすぎない保管を視覚的に伝えるための手入れガイド用イメージです。"
     }
   } satisfies Record<string, VisualAsset>,
   techniques: [
