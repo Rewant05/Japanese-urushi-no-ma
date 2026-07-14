@@ -1,14 +1,8 @@
-import type { MouseEvent } from "react";
-import type { PageProps } from "../App";
+import Link from "next/link";
 import { ContactForm } from "../components/ContactForm";
 import { siteData } from "../config/siteData";
 
-export default function ContactPage({ onNavigate }: PageProps) {
-  const handleLinkClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    onNavigate(href);
-  };
-
+export default function ContactPage() {
   return (
     <section className="page-shell contact-page">
       <div className="page-hero">
@@ -37,9 +31,9 @@ export default function ContactPage({ onNavigate }: PageProps) {
           <p>
             このフォームは架空サイト用のデモです。実在の工房への制作依頼、購入、修理相談は、各専門窓口の公式情報をご確認ください。
           </p>
-          <a className="text-link" href="/privacy-policy" onClick={handleLinkClick("/privacy-policy")}>
+          <Link className="text-link" href="/privacy-policy">
             プライバシーポリシーを見る
-          </a>
+          </Link>
         </div>
         <ContactForm />
       </div>

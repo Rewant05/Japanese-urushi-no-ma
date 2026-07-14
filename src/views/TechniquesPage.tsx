@@ -1,10 +1,9 @@
-import type { PageProps } from "../App";
 import { TechniqueCard } from "../components/Cards";
 import { MaterialSafetyNote } from "../components/Notes";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { siteData } from "../config/siteData";
 
-export default function TechniquesPage(_props: PageProps) {
+export default function TechniquesPage() {
   return (
     <section className="page-shell">
       <div className="page-hero">

@@ -1,14 +1,13 @@
+"use client";
+
 import { useEffect, useRef } from "react";
-import type { CSSProperties, MouseEvent } from "react";
+import type { CSSProperties } from "react";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { siteData } from "../config/siteData";
 
-type UrushiBrushHeroProps = {
-  onNavigate: (href: string) => void;
-};
-
-export function UrushiBrushHero({ onNavigate }: UrushiBrushHeroProps) {
+export function UrushiBrushHero() {
   const heroRef = useRef<HTMLElement>(null);
   const strokeRef = useRef<SVGPathElement>(null);
   const spreadRef = useRef<HTMLDivElement>(null);
@@ -98,11 +97,6 @@ export function UrushiBrushHero({ onNavigate }: UrushiBrushHeroProps) {
     return () => context.revert();
   }, []);
 
-  const handleClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    onNavigate(href);
-  };
-
   return (
     <section className="urushi-hero" ref={heroRef}>
       <div className="hero-workbench" aria-hidden="true">
@@ -170,12 +164,12 @@ export function UrushiBrushHero({ onNavigate }: UrushiBrushHeroProps) {
             <span>蒔絵</span>
           </div>
           <div className="hero-actions">
-            <a className="primary-action" href="/techniques" onClick={handleClick("/techniques")}>
+            <Link className="primary-action" href="/techniques">
               {siteData.hero.primaryCta}
-            </a>
-            <a className="secondary-action" href="/care-guide" onClick={handleClick("/care-guide")}>
+            </Link>
+            <Link className="secondary-action" href="/care-guide">
               {siteData.hero.secondaryCta}
-            </a>
+            </Link>
           </div>
         </div>
         <div className="hero-detail-panel">

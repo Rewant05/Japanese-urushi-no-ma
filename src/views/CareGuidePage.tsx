@@ -1,11 +1,10 @@
-import type { PageProps } from "../App";
 import { CareGuideCard } from "../components/Cards";
 import { CraftImage } from "../components/CraftImage";
 import { CraftDisclaimer, MaterialSafetyNote } from "../components/Notes";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { siteData } from "../config/siteData";
 
-export default function CareGuidePage(_props: PageProps) {
+export default function CareGuidePage() {
   return (
     <section className="page-shell">
       <div className="page-hero">

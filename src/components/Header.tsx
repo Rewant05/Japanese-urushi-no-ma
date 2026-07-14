@@ -1,23 +1,17 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import type { MouseEvent } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteData } from "../config/siteData";
 
-type HeaderProps = {
-  currentPath: string;
-  onNavigate: (href: string) => void;
-};
-
-export function Header({ currentPath, onNavigate }: HeaderProps) {
+export function Header() {
+  const currentPath = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setIsOpen(false);
   }, [currentPath]);
-
-  const handleLinkClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    onNavigate(href);
-  };
 
   return (
     <header className="site-header">
@@ -25,14 +19,13 @@ export function Header({ currentPath, onNavigate }: HeaderProps) {
         本文へ移動
       </a>
       <div className="header-inner">
-        <a
+        <Link
           aria-label={`${siteData.name} ホームへ`}
           className="brand-seal"
           href="/"
-          onClick={handleLinkClick("/")}
         >
           <span>{siteData.name}</span>
-        </a>
+        </Link>
 
         <button
           aria-controls="site-navigation"
@@ -53,18 +46,17 @@ export function Header({ currentPath, onNavigate }: HeaderProps) {
           id="site-navigation"
         >
           {siteData.navLinks.map((link) => (
-            <a
+            <Link
               aria-current={currentPath === link.href ? "page" : undefined}
               href={link.href}
               key={link.href}
-              onClick={handleLinkClick(link.href)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a className="label-cta" href="/contact" onClick={handleLinkClick("/contact")}>
+          <Link className="label-cta" href="/contact">
             相談する
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

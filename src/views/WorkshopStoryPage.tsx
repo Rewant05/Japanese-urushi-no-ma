@@ -1,9 +1,8 @@
-import type { PageProps } from "../App";
 import { CraftImage } from "../components/CraftImage";
 import { CraftDisclaimer, MaterialSafetyNote } from "../components/Notes";
 import { siteData } from "../config/siteData";
 
-export default function WorkshopStoryPage(_props: PageProps) {
+export default function WorkshopStoryPage() {
   return (
     <section className="page-shell story-page">
       <div className="page-hero">

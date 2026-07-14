@@ -1,29 +1,20 @@
-import type { MouseEvent } from "react";
+import Link from "next/link";
 import { siteData } from "../config/siteData";
 import { CraftDisclaimer } from "./Notes";
 
-type FooterProps = {
-  onNavigate: (href: string) => void;
-};
-
-export function Footer({ onNavigate }: FooterProps) {
+export function Footer() {
   const footerLinks = [...siteData.navLinks, ...siteData.footerLinks].filter(
     (link, index, links) => links.findIndex((item) => item.href === link.href) === index
   );
-
-  const handleLinkClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    onNavigate(href);
-  };
 
   return (
     <footer className="site-footer">
       <div className="footer-lacquer-line" aria-hidden="true" />
       <div className="footer-grid">
         <section>
-          <a className="footer-brand" href="/" onClick={handleLinkClick("/")}>
+          <Link className="footer-brand" href="/">
             {siteData.name}
-          </a>
+          </Link>
           <p>{siteData.tagline}</p>
           <p className="footer-small">{siteData.description}</p>
         </section>
@@ -43,9 +34,9 @@ export function Footer({ onNavigate }: FooterProps) {
           <h2>ページ</h2>
           <div className="footer-links">
             {footerLinks.map((link) => (
-              <a href={link.href} key={`${link.href}-${link.label}`} onClick={handleLinkClick(link.href)}>
+              <Link href={link.href} key={`${link.href}-${link.label}`}>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </section>

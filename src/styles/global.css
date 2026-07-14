@@ -654,7 +654,7 @@ h3 {
 
 .image-led-grid {
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-  align-items: stretch;
+  align-items: start;
 }
 
 .featured-work {
@@ -986,7 +986,7 @@ dd {
 .care-preview-grid .craft-image-frame {
   grid-column: 2;
   grid-row: 1 / span 4;
-  align-self: stretch;
+  align-self: start;
 }
 
 .care-mini-list {
@@ -1138,7 +1138,7 @@ dd {
   --tilt-y: 0deg;
   --lift: 0px;
   position: relative;
-  min-height: 100%;
+  min-height: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -1154,8 +1154,9 @@ dd {
 
 .craft-image-media {
   position: relative;
-  flex: 1 1 auto;
-  min-height: 260px;
+  flex: 0 0 auto;
+  min-height: 0;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
 }
 
@@ -1186,17 +1187,21 @@ dd {
 
 .craft-image-media picture {
   display: block;
-  min-height: 100%;
+  height: 100%;
 }
 
 .craft-image-frame img {
   width: 100%;
   height: 100%;
-  min-height: 260px;
-  aspect-ratio: 3 / 2;
+  min-height: 0;
   object-fit: cover;
   transform: scale(1.012);
   transition: transform 520ms ease;
+}
+
+.featured-image .craft-image-media,
+.care-preview-image .craft-image-media {
+  aspect-ratio: 16 / 10;
 }
 
 .craft-image-frame:hover img {
@@ -1505,11 +1510,16 @@ option {
     display: flex;
     min-height: 48px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     border-radius: 6px;
     padding: 10px 12px;
     border-bottom: 0;
+    text-align: center;
     white-space: normal;
+  }
+
+  .site-nav a:not(.label-cta) {
+    width: 100%;
   }
 
   .site-nav a[aria-current="page"] {

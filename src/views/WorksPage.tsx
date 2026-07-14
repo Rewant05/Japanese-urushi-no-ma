@@ -1,11 +1,10 @@
-import type { PageProps } from "../App";
 import { WorkCard } from "../components/Cards";
 import { CraftImage } from "../components/CraftImage";
 import { CraftDisclaimer } from "../components/Notes";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { siteData } from "../config/siteData";
 
-export default function WorksPage(_props: PageProps) {
+export default function WorksPage() {
   return (
     <section className="page-shell">
       <div className="page-hero">

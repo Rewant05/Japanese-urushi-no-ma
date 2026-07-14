@@ -1,6 +1,6 @@
 # Japanese-urushi-no-ma
 
-漆ノ間（Urushi no Ma）は、架空の日本漆器工芸室を題材にした、Vite + React + TypeScript 製のレスポンシブWebサイトです。
+漆ノ間（Urushi no Ma）は、架空の日本漆器工芸室を題材にした、Next.js + React + TypeScript 製のレスポンシブWebサイトです。
 
 ## Features
 

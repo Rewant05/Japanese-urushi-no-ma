@@ -1,5 +1,4 @@
-import type { MouseEvent } from "react";
-import type { PageProps } from "../App";
+import Link from "next/link";
 import { FAQList, SectionIntro, TechniqueCard, WorkCard } from "../components/Cards";
 import { CraftImage } from "../components/CraftImage";
 import { MaterialSafetyNote } from "../components/Notes";
@@ -7,15 +6,10 @@ import { RevealOnScroll } from "../components/RevealOnScroll";
 import { UrushiBrushHero } from "../components/UrushiBrushHero";
 import { siteData } from "../config/siteData";
 
-export default function HomePage({ onNavigate }: PageProps) {
-  const handleLinkClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    onNavigate(href);
-  };
-
+export default function HomePage() {
   return (
     <>
-      <UrushiBrushHero onNavigate={onNavigate} />
+      <UrushiBrushHero />
 
       <section className="section-band featured-band">
         <div className="content-wrap">
@@ -52,9 +46,9 @@ export default function HomePage({ onNavigate }: PageProps) {
               </RevealOnScroll>
             ))}
           </div>
-          <a className="text-link" href="/techniques" onClick={handleLinkClick("/techniques")}>
+          <Link className="text-link" href="/techniques">
             すべての技法を見る
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -92,9 +86,9 @@ export default function HomePage({ onNavigate }: PageProps) {
               </RevealOnScroll>
             ))}
           </div>
-          <a className="text-link" href="/works" onClick={handleLinkClick("/works")}>
+          <Link className="text-link" href="/works">
             作品一覧へ
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -114,10 +108,14 @@ export default function HomePage({ onNavigate }: PageProps) {
             ))}
           </div>
           <MaterialSafetyNote compact />
-          <CraftImage asset={siteData.visualAssets.care} sizes="(max-width: 860px) 100vw, 48vw" />
-          <a className="text-link" href="/care-guide" onClick={handleLinkClick("/care-guide")}>
+          <CraftImage
+            asset={siteData.visualAssets.care}
+            className="care-preview-image"
+            sizes="(max-width: 860px) 100vw, 48vw"
+          />
+          <Link className="text-link" href="/care-guide">
             お手入れを詳しく読む
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -129,9 +127,9 @@ export default function HomePage({ onNavigate }: PageProps) {
           </div>
           <p>{siteData.storySections[0].body}</p>
           <CraftImage asset={siteData.visualAssets.workshop} sizes="(max-width: 860px) 100vw, 32vw" />
-          <a className="primary-action" href="/workshop-story" onClick={handleLinkClick("/workshop-story")}>
+          <Link className="primary-action" href="/workshop-story">
             工房の物語へ
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -152,9 +150,9 @@ export default function HomePage({ onNavigate }: PageProps) {
           <h2>漆器のことを、静かに相談する</h2>
           <p>作品、手入れ、取材、展示の相談はお問い合わせページからご連絡ください。</p>
         </div>
-        <a className="label-cta label-cta--large" href="/contact" onClick={handleLinkClick("/contact")}>
+        <Link className="label-cta label-cta--large" href="/contact">
           相談する
-        </a>
+        </Link>
       </section>
     </>
   );

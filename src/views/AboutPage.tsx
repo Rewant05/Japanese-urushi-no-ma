@@ -1,15 +1,9 @@
-import type { MouseEvent } from "react";
-import type { PageProps } from "../App";
+import Link from "next/link";
 import { CraftImage } from "../components/CraftImage";
 import { MaterialSafetyNote } from "../components/Notes";
 import { siteData } from "../config/siteData";
 
-export default function AboutPage({ onNavigate }: PageProps) {
-  const handleLinkClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    onNavigate(href);
-  };
-
+export default function AboutPage() {
   return (
     <section className="page-shell">
       <div className="page-hero">
@@ -64,9 +58,9 @@ export default function AboutPage({ onNavigate }: PageProps) {
       <div className="quiet-cta">
         <h2>技法から読み始める</h2>
         <p>漆器の見え方が変わる、八つの基本工程をまとめています。</p>
-        <a className="primary-action" href="/techniques" onClick={handleLinkClick("/techniques")}>
+        <Link className="primary-action" href="/techniques">
           漆の技法へ
-        </a>
+        </Link>
       </div>
     </section>
   );
